@@ -1,0 +1,11 @@
+@if (opciones) {
+<section>
+  @for (item of opciones.submenu; track $index) {
+    <p>xxx</p>
+  <app-submenu-item [itemenu]="item"></app-submenu-item>
+  }
+</section>
+} @else {
+<p>No hay opciones</p>
+
+}
