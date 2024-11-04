@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { SubmenuItemComponent } from '../submenu-item/submenu-item.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
+import { ViewNewComponent } from '../view-new/view-new.component';
 
 @Component({
   selector: 'app-menulateral',
   standalone: true,
-  imports: [SubmenuComponent, SubmenuItemComponent],
+  imports: [SubmenuComponent, SubmenuItemComponent,ViewNewComponent],
   templateUrl: './menulateral.component.html',
   styleUrl: './menulateral.component.sass',
 })
@@ -18,21 +19,18 @@ export class MenulateralComponent {
     },
 
     {
-      Title: 'Shorts',
+      
+      Title: 'shorts',
       Icon: 'fa-solid fa-bomb',
-      link: 'Shorts',
+      link: 'shorts',
     },
     {
-      Title: 'Inicio',
+      Title: 'Vistas',
       Icon: 'fa-solid fa-house-user',
-      link: '',
+      link: 'view-new',
     },
 
-    {
-      Title: 'Shorts',
-      Icon: 'fa-solid fa-bomb',
-      link: '',
-    },
+
   ];
-  item: any;
+  items: any;
 }

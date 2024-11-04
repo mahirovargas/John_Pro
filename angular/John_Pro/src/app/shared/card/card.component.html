@@ -1,8 +1,8 @@
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{ noticia?.titulo }}</h5>
-    <p class="card-text">{{ noticia?.texto }}</p>
-    <a [routerLink]="['/noticia', noticia?.id]" class="btn btn-primary">Link</a>
+    <h5 class="card-title">{{ item?.title }}</h5>
+    <p class="card-text">{{ item?.body }}</p>
+    <a [routerLink]="['/noticia', item?.id]" class="btn btn-primary">Link</a>
     <img
       src="https://i.gifer.com/Awch.gif"
       alt="Imagen"

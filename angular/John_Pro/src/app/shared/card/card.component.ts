@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { noticia } from '../../models/noticia';
+import { post } from '../../models/post';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
@@ -10,5 +10,5 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrl: './card.component.sass',
 })
 export class CardComponent {
-  @Input() noticia: noticia | undefined;
+  @Input() item: post | undefined;
 }

@@ -1,5 +1,5 @@
-<div>
-  @for (item of noticias; track $index) {
-  <app-card [noticia]="item"></app-card>
+<div class="wrap">
+  @for (item of items; track $index) {
+    <app-card [item]="item"></app-card>
   }
 </div>
