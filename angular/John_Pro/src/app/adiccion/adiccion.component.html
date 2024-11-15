@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Pregunta a Encuesta</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4e54c8, #8f94fb);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        header img {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Contenedor con fondo semitransparente y animación */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            border-radius: 8px;
+            text-align: center;
+            animation: slideUp 0.8s ease;
+        }
+
+        /* Estilo para los elementos del formulario */
+        select, textarea {
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+
+        select:hover, textarea:hover {
+            border-color: #4e54c8;
+            background-color: #f0f3ff;
+        }
+
+        /* Estilo para el contenedor de botones */
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Estilo para botones con efectos de transición */
+        button {
+            width: 48%;
+            padding: 12px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #4e54c8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #3c42a8;
+        }
+
+        /* Animaciones */
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="encabezado.png" alt="Encabezado de Encuesta">
+    </header>
+
+    <div class="container">
+        <h1>Agregar Pregunta a Encuesta</h1>
+
+        <label for="tipoEncuesta">Seleccione el tipo de encuesta:</label>
+        <select id="tipoEncuesta" name="tipoEncuesta">
+            <option value="satisfaccion">Encuesta de Satisfacción</option>
+            <option value="opiniones">Encuesta de Opiniones</option>
+            <option value="producto">Encuesta de Producto</option>
+            <option value="otros">Otros</option>
+        </select>
+
+        <label for="pregunta">Ingrese su pregunta:</label>
+        <textarea id="pregunta" name="pregunta" rows="4" placeholder="Escriba aquí su pregunta..."></textarea>
+
+        <div class="button-container">
+            <button onclick="guardarPregunta()">Guardar</button>
+            <button onclick="volverInicio()">Volver al Inicio</button>
+        </div>
+    </div>
+
+    <script>
+        function guardarPregunta() {
+            alert('Pregunta guardada exitosamente.');
+        }
+
+        function volverInicio() {
+            window.location.href = 'index.html';
+        }
+    </script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@ import { post } from '../models/post';
 export class PostService {
   constructor(private http: HttpClient) { }
   all(){
-    return this.http.get<post[]>('https://dummyjson.com/post');
+    return this.http.get('https://dummyjson.com/posts');
 
 
   }

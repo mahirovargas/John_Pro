@@ -1,9 +1,8 @@
 aside {
   background: #222222;
-  width: 250px;
+  width: 190px;
   height: 100vh;
-}
-
-p {
   margin: 0;
+  margin-font-size: 24px;
+  color: rgba(255, 255, 255, 0.4);
 }/*# sourceMappingURL=menulateral.component.css.map */

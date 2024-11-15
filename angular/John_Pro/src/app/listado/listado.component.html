@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Personas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Gestión de Personas</h1>
+    </header>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Cédula</th>
+                    <th>Colegio</th>
+                    <th>Jornada</th>
+                    <th>Edad</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tablaPersonas">
+                <!-- 10 registros de ejemplo -->
+                <tr>
+                    <td>Juan</td>
+                    <td>Pérez</td>
+                    <td>12345678</td>
+                    <td>Colegio Nacional</td>
+                    <td>Mañana</td>
+                    <td>16</td>
+                    <td>
+                        <button onclick="editarPersona(this)">Editar</button>
+                        <button onclick="eliminarPersona(this)">Eliminar</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>María</td>
+                    <td>García</td>
+                    <td>87654321</td>
+                    <td>Colegio del Sol</td>
+                    <td>Tarde</td>
+                    <td>17</td>
+                    <td>
+                        <button onclick="editarPersona(this)">Editar</button>
+                        <button onclick="eliminarPersona(this)">Eliminar</button>
+                    </td>
+                </tr>
+                <!-- Añade 8 registros más según el patrón -->
+            </tbody>
+        </table>
+
+        <!-- Formulario para agregar/editar personas -->
+        <h2>Agregar/Editar Persona</h2>
+        <form id="formularioPersona">
+            <input type="text" id="nombre" placeholder="Nombre" required>
+            <input type="text" id="apellido" placeholder="Apellido" required>
+            <input type="text" id="cedula" placeholder="Cédula" required>
+            <input type="text" id="colegio" placeholder="Colegio" required>
+            <input type="text" id="jornada" placeholder="Jornada" required>
+            <input type="number" id="edad" placeholder="Edad" required>
+            <button type="button" onclick="agregarOEditarPersona()">Guardar</button>
+        </form>
+    </div>
+
+    <script>
+        let filaEditada = null;
+
+        function agregarOEditarPersona() {
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const cedula = document.getElementById('cedula').value;
+            const colegio = document.getElementById('colegio').value;
+            const jornada = document.getElementById('jornada').value;
+            const edad = document.getElementById('edad').value;
+
+            if (filaEditada) {
+                filaEditada.cells[0].textContent = nombre;
+                filaEditada.cells[1].textContent = apellido;
+                filaEditada.cells[2].textContent = cedula;
+                filaEditada.cells[3].textContent = colegio;
+                filaEditada.cells[4].textContent = jornada;
+                filaEditada.cells[5].textContent = edad;
+                filaEditada = null;
+            } else {
+                const tabla = document.getElementById('tablaPersonas');
+                const nuevaFila = tabla.insertRow();
+                nuevaFila.innerHTML = `
+                    <td>${nombre}</td>
+                    <td>${apellido}</td>
+                    <td>${cedula}</td>
+                    <td>${colegio}</td>
+                    <td>${jornada}</td>
+                    <td>${edad}</td>
+                    <td>
+                        <button onclick="editarPersona(this)">Editar</button>
+                        <button onclick="eliminarPersona(this)">Eliminar</button>
+                    </td>
+                `;
+            }
+
+            document.getElementById('formularioPersona').reset();
+        }
+
+        function editarPersona(boton) {
+            filaEditada = boton.parentElement.parentElement;
+            document.getElementById('nombre').value = filaEditada.cells[0].textContent;
+            document.getElementById('apellido').value = filaEditada.cells[1].textContent;
+            document.getElementById('cedula').value = filaEditada.cells[2].textContent;
+            document.getElementById('colegio').value = filaEditada.cells[3].textContent;
+            document.getElementById('jornada').value = filaEditada.cells[4].textContent;
+            document.getElementById('edad').value = filaEditada.cells[5].textContent;
+        }
+
+        function eliminarPersona(boton) {
+            const fila = boton.parentElement.parentElement;
+            fila.remove();
+        }
+    </script>
+
+</body>
+</html>

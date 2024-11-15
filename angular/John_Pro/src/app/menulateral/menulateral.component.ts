@@ -1,36 +1,65 @@
 import { Component } from '@angular/core';
 import { SubmenuItemComponent } from '../submenu-item/submenu-item.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
-import { ViewNewComponent } from '../view-new/view-new.component';
+import { AdiccionComponent } from '../adiccion/adiccion.component';
+import { EditarComponent } from '../editar/editar.component';
+import { GPreguntasComponent } from '../g.preguntas/g.preguntas.component';
+import { GTipoComponent } from '../g.tipo/g.tipo.component';
+import { ListadoComponent } from '../listado/listado.component';
+import { RegistroComponent } from '../registro/registro.component';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-menulateral',
   standalone: true,
-  imports: [SubmenuComponent, SubmenuItemComponent,ViewNewComponent],
+  imports: [SubmenuComponent, SubmenuItemComponent,],
   templateUrl: './menulateral.component.html',
   styleUrl: './menulateral.component.sass',
 })
 export class MenulateralComponent {
   public menu: any = [
+    
     {
-      Title: 'Inicio',
+      Title: 'Home',
       Icon: 'fa-solid fa-house-user',
-      link: '/',
+      link: 'home',
+      
     },
 
     {
       
-      Title: 'shorts',
+      Title: 'G.Encuestas',
       Icon: 'fa-solid fa-bomb',
-      link: 'shorts',
+      link: 'g.encuestas',
+    },
+
+    {
+      Title: 'G.Preguntas',
+      Icon: 'fa-solid fa-house-user',
+      Link: 'g.preguntas',
     },
     {
-      Title: 'Vistas',
+      Title: 'G.Tipo',
       Icon: 'fa-solid fa-house-user',
-      link: 'view-new',
+      link: 'g.tipo',
     },
 
-
+    {
+      Title: 'Listado',
+      Icon: 'fa-solid fa-house-user',
+      link: 'listado',
+    },
+    {
+      Title: 'Adiccion',
+      Icon: 'fa-solid fa-house-user',
+      link: 'adiccion',
+    },
+    {
+      Title: 'Editar',
+      Icon: 'fa-solid fa-house-user',
+      link: 'Editar',
+    },
   ];
   items: any;
 }

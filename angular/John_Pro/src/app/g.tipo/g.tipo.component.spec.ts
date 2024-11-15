@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewNewComponent } from './view-new.component';
+import { GTipoComponent } from './g.tipo.component';
 
-describe('ViewNewComponent', () => {
-  let component: ViewNewComponent;
-  let fixture: ComponentFixture<ViewNewComponent>;
+describe('GTipoComponent', () => {
+  let component: GTipoComponent;
+  let fixture: ComponentFixture<GTipoComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ViewNewComponent]
+      imports: [GTipoComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewNewComponent);
+    fixture = TestBed.createComponent(GTipoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

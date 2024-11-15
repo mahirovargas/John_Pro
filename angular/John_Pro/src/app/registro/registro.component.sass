@@ -1,0 +1,68 @@
+html, body 
+  height: 100%
+  margin: 0
+  display: flex
+  justify-content: center
+  align-items: center
+  background-color: #f0f8ff // opcional para un fondo global
+
+
+.form-container 
+  max-width: 400px
+  margin: 0 auto
+  padding: 2rem // unificado a 2rem para mantener consistencia
+  border-radius: 10px
+  background-color: rgba(64, 224, 208, 0.8) // turquesa con transparencia
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
+  
+  .form-group 
+    margin-bottom: 1.5rem
+
+    label 
+      display: block
+      margin-bottom: 5px
+      font-weight: bold
+    
+
+    input 
+      width: 100%
+      padding: 8px
+      border: 1px solid #ccc
+      border-radius: 5px
+      &:focus 
+        border-color: #007bff
+        outline: none
+      
+    
+  
+
+  .button-group 
+    display: flex
+    justify-content: space-between
+
+    a 
+      text-decoration: none
+      margin-right: 1rem
+    
+
+    button 
+      padding: 10px 20px
+      border: none
+      border-radius: 5px
+      cursor: pointer
+      transition: background-color 0.3s
+
+      &:first-of-type 
+        background-color: #007bff
+        color: #fff
+        &:hover 
+          background-color: #0056b3
+        
+      
+
+      &:last-of-type 
+        background-color: #dc3545
+        color: #fff
+        &:hover 
+          background-color: #c82333
+  

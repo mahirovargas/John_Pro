@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de tipo</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <h1>Gestión de Preguntas para Encuestas</h1>
+    </header>
+
+    <div class="container">
+        <label for="tipoPregunta">Seleccione el tipo de pregunta:</label>
+        <select id="tipoPregunta" name="tipoPregunta" onchange="mostrarOpciones()">
+            <option value="">Seleccione un tipo...</option>
+            <option value="texto">Texto</option>
+            <option value="multiple">Opciones Múltiples</option>
+            <option value="unica">Una Sola Opción</option>
+            <option value="contenedor">Contenedor</option>
+        </select>
+
+        <div id="formularioPregunta">
+            <!-- Se mostrarán las opciones aquí según el tipo de pregunta -->
+        </div>
+
+        <button onclick="guardarPregunta()">Guardar Pregunta</button>
+    </div>
+
+    <script>
+        function mostrarOpciones() {
+            const tipoPregunta = document.getElementById("tipoPregunta").value;
+            const formularioPregunta = document.getElementById("formularioPregunta");
+
+            formularioPregunta.innerHTML = "";
+
+            if (tipoPregunta === "texto") {
+                formularioPregunta.innerHTML = `
+                    <label for="preguntaTexto">Pregunta de Texto:</label>
+                    <input type="text" id="preguntaTexto" placeholder="Escriba su pregunta...">
+                `;
+            } else if (tipoPregunta === "multiple") {
+                formularioPregunta.innerHTML = `
+                    <label for="preguntaMultiple">Pregunta de Opciones Múltiples:</label>
+                    <input type="text" id="preguntaMultiple" placeholder="Escriba su pregunta...">
+                    <div id="opciones">
+                        <input type="text" placeholder="Opción 1">
+                        <input type="text" placeholder="Opción 2">
+                        <button onclick="agregarOpcion()">Agregar Opción</button>
+                    </div>
+                `;
+            } else if (tipoPregunta === "unica") {
+                formularioPregunta.innerHTML = `
+                    <label for="preguntaUnica">Pregunta de Una Sola Opción:</label>
+                    <input type="text" id="preguntaUnica" placeholder="Escriba su pregunta...">
+                    <div id="opcionUnica">
+                        <input type="text" placeholder="Opción 1">
+                        <input type="text" placeholder="Opción 2">
+                    </div>
+                `;
+            } else if (tipoPregunta === "contenedor") {
+                formularioPregunta.innerHTML = `
+                    <label for="contenedorPregunta">Contenedor de Preguntas:</label>
+                    <textarea id="contenedorPregunta" rows="4" placeholder="Ingrese el contenido aquí..."></textarea>
+                `;
+            }
+        }
+
+        function agregarOpcion() {
+            const opcionesDiv = document.getElementById("opciones");
+            const nuevaOpcion = document.createElement("input");
+            nuevaOpcion.type = "text";
+            nuevaOpcion.placeholder = `Opción ${opcionesDiv.children.length}`;
+            opcionesDiv.insertBefore(nuevaOpcion, opcionesDiv.lastElementChild);
+        }
+
+        function guardarPregunta() {
+            alert("Pregunta guardada exitosamente.");
+            // Aquí se puede agregar lógica adicional para guardar la pregunta.
+        }
+    </script>
+
+</body>
+</html>

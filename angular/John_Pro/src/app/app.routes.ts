@@ -1,25 +1,47 @@
 import { Routes } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
-import { ShortsComponent } from './shorts/shorts.component';
-import { ViewNewComponent } from './view-new/view-new.component';
+import { Component } from '@angular/core';
+import { SubmenuComponent } from './submenu/submenu.component';
+import { SubmenuItemComponent } from './submenu-item/submenu-item.component';
+import { AdiccionComponent } from './adiccion/adiccion.component';
+import { EditarComponent } from './editar/editar.component';
+import { } from './g.preguntas/g.preguntas.component';
+import { GTipoComponent } from './g.tipo/g.tipo.component';
+import { ListadoComponent } from './listado/listado.component';
+import { RegistroComponent } from './registro/registro.component';
+import { Title } from '@angular/platform-browser';
+
+
 import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
   {
     path: "",
-    redirectTo: "/home",
+    redirectTo: "registro",
     pathMatch: "full"
   },
   { 
-    path: 'home',  
-    loadComponent: () => import('./home/home.component').then(c => c.HomeComponent)
+    path: 'registro',  
+    loadComponent: () => import('./registro/registro.component').then(c => c.RegistroComponent)
+  
   },
-  { path: 'shorts', component: ShortsComponent },
-  { path: 'noticia/:idnoticia', component: ViewNewComponent},
+
+  { path: 'home', component: HomeComponent},
+  { path: 'G.Preguntas', component: GPreguntasComponent},
+  { path: 'G.Tipo', component: GTipoComponent},
+  { path: 'Liatado', component: ListadoComponent},
+  { path: 'Adiccion', component: AdiccionComponent},
+  { path: 'Editar', component: EditarComponent},
+
+  
+ 
+
+
   {
     path:"**",
     component: NotFoundComponent
   }
-  //{ path: 'view-new', component: ViewNewComponent} acceso a otra prestaña
+ 
   
 ];

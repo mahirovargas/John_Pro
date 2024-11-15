@@ -2,6 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { CardComponent } from '../shared/card/card.component';
 import { post } from '../models/post';
 import { MenulateralComponent } from '../menulateral/menulateral.component';
+import { SubmenuItemComponent } from '../submenu-item/submenu-item.component';
+import { SubmenuComponent } from '../submenu/submenu.component';
+import { AdiccionComponent } from '../adiccion/adiccion.component';
+import { EditarComponent } from '../editar/editar.component';
+import { GPreguntasComponent } from '../g.preguntas/g.preguntas.component';
+import { GTipoComponent } from '../g.tipo/g.tipo.component';
+import { ListadoComponent } from '../listado/listado.component';
+import { Title } from '@angular/platform-browser';
+import { RegistroComponent } from '../registro/registro.component';
 import { PostService } from '../service/post.service';
 
 @Component({
@@ -9,7 +18,7 @@ import { PostService } from '../service/post.service';
   standalone: true,
   imports: [CardComponent],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.sass'], // Cambiado a styleUrls
+  styleUrls: ['./home.component.sass'],  
 })
 export class HomeComponent implements OnInit {
 /*
@@ -21,14 +30,14 @@ export class HomeComponent implements OnInit {
       tags: 'https://www.facebook.com',
     },
     {
-      id: 2,
+      id:
+    {
+      id: 3,
+       2,
       title: 'Noticias 2', // Cambiado a title
       body: 'Texto de Noticias 2', // Cambiado a body
       tags: 'https://www.facebook.com', // Cambiado a tags
-    },
-    {
-      id: 3,
-      title: 'Noticias 3', // Cambiado a title
+    },title: 'Noticias 3', // Cambiado a title
       body: 'Texto de Noticias 3', // Cambiado a body
       tags: 'https://www.facebook.com', // Cambiado a tags
     },
@@ -46,7 +55,8 @@ export class HomeComponent implements OnInit {
   
   ngOnInit(): void {
     this.httpService.all().subscribe((data: any) => {
-     this.items = data.posts
+      
+     this.items = data.posts;
     });
 
   }

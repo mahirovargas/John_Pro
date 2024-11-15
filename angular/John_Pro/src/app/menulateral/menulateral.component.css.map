@@ -1,1 +1,1 @@
-{"version":3,"sources":["menulateral.component.sass","menulateral.component.css"],"names":[],"mappings":"AAAA;EACI,mBAAA;EACA,YAAA;EACA,aAAA;ACCJ;;ADAA;EACI,SAAA;ACGJ","file":"menulateral.component.css"}
+{"version":3,"sources":["menulateral.component.sass","menulateral.component.css"],"names":[],"mappings":"AAAA;EACI,mBAAA;EACA,YAAA;EACA,aAAA;EACA,SAAA;EAEC,sBAAA;EACD,+BAAA;ACAJ","file":"menulateral.component.css"}

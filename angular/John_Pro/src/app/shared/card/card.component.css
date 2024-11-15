@@ -1,7 +1,7 @@
 .card {
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px 0 rgba(118, 197, 65, 0);
   padding: 16px;
-  margin: 16px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -9,5 +9,5 @@
   cursor: pointer;
 }
 .card:hover {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px 0 rgba(182, 19, 19, 0.1);
 }/*# sourceMappingURL=card.component.css.map */
