@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Preguntas</title>
+    <style>
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f7f9fc;
+            color: #333;
+        }
+
+        header {
+            width: 100%;
+            background-color: #4e54c8;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        select, input[type=text], textarea {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s;
+        }
+
+        select:hover, input[type=text]:hover, textarea:hover {
+            border-color: #4e54c8;
+        }
+
+        #opciones {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        button {
+            padding: 0.8rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #4e54c8;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #3c42a8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Gestión de Preguntas para Encuestas</h1>
+    </header>
+
+    <div class="container">
+        <label for="tipoPregunta">Seleccione el tipo de pregunta:</label>
+        <select id="tipoPregunta" name="tipoPregunta" onchange="mostrarOpciones()">
+            <option value="">Seleccione un tipo...</option>
+            <option value="texto">Texto</option>
+            <option value="multiple">Opciones Múltiples</option>
+        </select>
+
+        <div id="formularioPregunta">
+            <!-- Se mostrarán las opciones aquí según el tipo de pregunta -->
+        </div>
+
+
+        <button>
+            <a href="/home" button type="button" class="edit-btn" onclick="editarPersona()">Guardar Pregunta</a>
+        </button>
+ 
+    </div>
+
+    <script>
+        function mostrarOpciones() {
+            const tipoPregunta = document.getElementById("tipoPregunta").value;
+            const formularioPregunta = document.getElementById("formularioPregunta");
+
+            // Limpiar contenido previo
+            formularioPregunta.innerHTML = "";
+
+            // Opciones para el tipo "Texto"
+            if (tipoPregunta === "texto") {
+                formularioPregunta.innerHTML = `
+                    <label for="tituloTexto">Título de la Pregunta:</label>
+                    <input type="text" id="tituloTexto" placeholder="Escriba el título...">
+
+                    <label for="respuestaTexto">Respuesta de Texto:</label>
+                    <textarea id="respuestaTexto" rows="4" placeholder="Escriba aquí la respuesta..."></textarea>
+                `;
+            } 
+            // Opciones para el tipo "Opciones Múltiples"
+            else if (tipoPregunta === "multiple") {
+                formularioPregunta.innerHTML = `
+                    <label for="tituloMultiple">Título de la Pregunta:</label>
+                    <input type="text" id="tituloMultiple" placeholder="Escriba el título...">
+
+                    <label for="opciones">Opciones:</label>
+                    <div id="opciones">
+                        <input type="text" placeholder="Opción 1">
+                        <input type="text" placeholder="Opción 2">
+                        <button type="button" onclick="agregarOpcion()">Agregar Opción</button>
+                    </div>
+                `;
+            }
+        }
+
+        function agregarOpcion() {
+            const opcionesDiv = document.getElementById("opciones");
+            const nuevaOpcion = document.createElement("input");
+            nuevaOpcion.type = "text";
+            nuevaOpcion.placeholder = `Opción ${opcionesDiv.children.length}`;
+            opcionesDiv.insertBefore(nuevaOpcion, opcionesDiv.lastElementChild);
+        }
+
+        function guardarPregunta() {
+            alert("Pregunta guardada exitosamente.");
+            // Aquí puedes agregar lógica adicional para guardar la pregunta.
+        }
+    </script>
+
+</body>
+</html>

@@ -1,20 +1,116 @@
-<div class="form-container">
-  <form (ngSubmit)="onSubmit()" #registroForm="ngForm">
-    <div class="form-group">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre" [(ngModel)]="nombre" required>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Editar Pregunta</title>
+    <style>
+        body {
+            background-image: url('https://lh6.googleusercontent.com/proxy/gKga2VxLcNE7LCf9fbPfc1zpllMkDA_wULNDAY5HTFsT0nZZ11xGQ_klZiRojPxpm4bPLgpKJSSuPIOwgvbZUd6f0FNUN5CM');
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .button-group {
+            display: flex; /* Usamos Flexbox */
+            justify-content: space-between; /* Espaciado entre los botones */
+            gap: 10px; /* Espaciado entre ellos */
+            margin-top: 15px;
+        }
+
+        button {
+            flex: 1; /* Asegura que ambos botones ocupen el mismo ancho */
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease; /* Transición para el hover */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.1); /* Incrementa el tamaño en hover */
+        }
+
+        #cancel-button {
+            background-color: #6c757d;
+        }
+
+        #cancel-button:hover {
+            background-color: #5a6268;
+            transform: scale(1.1); /* Incrementa el tamaño en hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Iniciar Sesión</h2>
+        <form>
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" placeholder="Ingrese su usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" placeholder="Ingrese su contraseña" required>
+            </div>
+            <div class="button-group">
+                <button type="button" id="login-button" onclick="playClickSound()">Entrar</button>
+                
+                <button type="button" id="cancel-button" onclick="playClickSound()">Cancelar</button>
+            </div>
+        </form>
     </div>
-    <div class="form-group">
-      <label for="password">Contraseña:</label>
-      <input type="password" id="password" name="password" [(ngModel)]="password" required>
-    </div>
-    <div class="button-group">
-    
-        <button type="submit" [disabled]="!registroForm.form.valid">Continuar</button>
-     
-      <a href="http://localhost:55591/registro">
-        <button type="button" (click)="resetForm()">Cancelar</button>
-      </a>
-    </div>
-  </form>
-</div>
+
+    <audio id="click-sound" src="https://www.soundjay.com/button/beep-07.wav"></audio> <!-- Sonido al hacer clic -->
+
+    <script>
+        // Reproduce el sonido al hacer clic en un botón
+        function playClickSound() {
+            const audio = document.getElementById('click-sound');
+            audio.currentTime = 0; // Reinicia el sonido
+            audio.play();
+        }
+    </script>
+</body>
+</html>

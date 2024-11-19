@@ -1,1 +1,165 @@
-<p>editar works!</p>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://i.pinimg.com/originals/f4/a8/c7/f4a8c7b462f5466f82919c967191d0c3.gif'); /* URL del GIF */
+            background-size: cover; /* Ajusta el tamaño del fondo */
+            background-position: center; /* Centra el fondo */
+        }
+
+        .crud-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            transition: all 0.3s ease-in-out;
+            background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente */
+        }
+
+        .crud-container h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-actions .edit-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .form-actions .edit-btn:hover {
+            background-color: #0056b3;
+        }
+
+        .form-actions .cancel-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .form-actions .cancel-btn:hover {
+            background-color: #d32f2f;
+        }
+
+        /* Diseño responsive */
+        @media (min-width: 600px) {
+            .crud-container {
+                width: 80%;
+                max-width: 400px;
+            }
+
+            .form-actions {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="crud-container">
+        <h2>Editar</h2>
+        <form id="crudForm">
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" placeholder="Ingrese el nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cedula">Cédula</label>
+                <input type="text" id="cedula" placeholder="Ingrese la cédula" required>
+            </div>
+            <div class="form-group">
+                <label for="colegio">Colegio</label>
+                <input type="text" id="colegio" placeholder="Ingrese el colegio" required>
+            </div>
+            <div class="form-group">
+                <label for="jornada">Jornada</label>
+                <input type="text" id="jornada" placeholder="Ingrese la jornada" required>
+            </div>
+
+            <div class="form-actions">
+                <button>
+                <a href="/home" button type="button" class="edit-btn" onclick="editarPersona()">Editar</a>
+            </button>
+
+            <button>
+                <a href="/editar" button type="button" class="cancel-btn" onclick="editarPersona()">Cancelar</a>
+            </button>
+
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let datosPersona = null;
+
+        function editarPersona() {
+            const nombre = document.getElementById('nombre').value;
+            const apellido = document.getElementById('apellido').value;
+            const cedula = document.getElementById('cedula').value;
+            const colegio = document.getElementById('colegio').value;
+            const jornada = document.getElementById('jornada').value;
+            const edad = document.getElementById('edad').value;
+
+            datosPersona = { nombre, apellido, cedula, colegio, jornada, edad };
+
+            alert('Datos guardados: ' + JSON.stringify(datosPersona, null, 2));
+        }
+
+        function cancelarEdicion() {
+            if (confirm('¿Desea cancelar la edición?')) {
+                document.getElementById('crudForm').reset();
+                datosPersona = null;
+            }
+        }
+    </script>
+</body>
+</html>

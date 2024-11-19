@@ -4,7 +4,126 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Personas</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #cce7ff; /* Azul claro */
+            color: #333;
+            background-image: url('https://i.pinimg.com/originals/f4/a8/c7/f4a8c7b462f5466f82919c967191d0c3.gif');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        .container {
+            margin: 20px auto;
+            width: 90%;
+            max-width: 800px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 10px;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            flex: 1 1 calc(33.333% - 20px);
+        }
+
+        input[type="number"] {
+            max-width: 100px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            table, th, td {
+                font-size: 12px;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+
+            form {
+                flex-direction: column;
+            }
+
+            input {
+                flex: 1 1 100%;
+            }
+
+            button {
+                width: 100%;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                font-size: 18px;
+                padding: 10px;
+            }
+
+            th, td {
+                padding: 8px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -26,7 +145,6 @@
                 </tr>
             </thead>
             <tbody id="tablaPersonas">
-                <!-- 10 registros de ejemplo -->
                 <tr>
                     <td>Juan</td>
                     <td>Pérez</td>
@@ -51,20 +169,18 @@
                         <button onclick="eliminarPersona(this)">Eliminar</button>
                     </td>
                 </tr>
-                <!-- Añade 8 registros más según el patrón -->
             </tbody>
         </table>
 
-        <!-- Formulario para agregar/editar personas -->
         <h2>Agregar/Editar Persona</h2>
-        <form id="formularioPersona">
+        <form id="formularioPersona" onsubmit="agregarOEditarPersona(); return false;">
             <input type="text" id="nombre" placeholder="Nombre" required>
             <input type="text" id="apellido" placeholder="Apellido" required>
             <input type="text" id="cedula" placeholder="Cédula" required>
             <input type="text" id="colegio" placeholder="Colegio" required>
             <input type="text" id="jornada" placeholder="Jornada" required>
-            <input type="number" id="edad" placeholder="Edad" required>
-            <button type="button" onclick="agregarOEditarPersona()">Guardar</button>
+            <input type="number" id="edad" placeholder="Edad" min="0" required>
+            <button type="submit">Guardar</button>
         </form>
     </div>
 
@@ -103,7 +219,6 @@
                     </td>
                 `;
             }
-
             document.getElementById('formularioPersona').reset();
         }
 
@@ -118,10 +233,14 @@
         }
 
         function eliminarPersona(boton) {
-            const fila = boton.parentElement.parentElement;
-            fila.remove();
+            if (confirm("¿Estás seguro de que deseas eliminar esta persona?")) {
+                const fila = boton.parentElement.parentElement;
+                fila.remove();
+            }
         }
     </script>
-
+                <button>
+                    <a href="/home" button type="button" class="edit-btn" onclick="editarPersona()">Home</a>
+                </button>
 </body>
 </html>

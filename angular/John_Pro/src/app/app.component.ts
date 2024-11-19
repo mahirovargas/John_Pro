@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MenulateralComponent } from './menulateral/menulateral.component';
-import { GPreguntasComponent } from './g.preguntas/g.preguntas.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 

@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registro',
-  standalone: true, 
+  standalone: true,
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.sass'],
-  imports: [FormsModule] 
+  imports: [FormsModule]
 })
 export class RegistroComponent {
   nombre: string = '';
   password: string = '';
+
+  constructor(private router: Router) {}
 
   onSubmit() {
     if (this.nombre && this.password) {
@@ -23,5 +26,15 @@ export class RegistroComponent {
   resetForm() {
     this.nombre = '';
     this.password = '';
+  }
+
+  playClickSound(): void {
+    console.log('Reproduciendo sonido...');
+    // Aquí puedes añadir la lógica para reproducir un sonido
+  }
+
+  navigateToGPreguntas(): void {
+    this.playClickSound(); // Reproduce el sonido
+    this.router.navigate(['/g.preguntas']); // Navega al componente G.Preguntas
   }
 }

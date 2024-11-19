@@ -6,8 +6,8 @@ import { SubmenuComponent } from './submenu/submenu.component';
 import { SubmenuItemComponent } from './submenu-item/submenu-item.component';
 import { AdiccionComponent } from './adiccion/adiccion.component';
 import { EditarComponent } from './editar/editar.component';
-import { } from './g.preguntas/g.preguntas.component';
 import { GTipoComponent } from './g.tipo/g.tipo.component';
+import { GPreguntasComponent } from './g.preguntas/g.preguntas.component';
 import { ListadoComponent } from './listado/listado.component';
 import { RegistroComponent } from './registro/registro.component';
 import { Title } from '@angular/platform-browser';
@@ -28,9 +28,10 @@ export const routes: Routes = [
   },
 
   { path: 'home', component: HomeComponent},
-  { path: 'G.Preguntas', component: GPreguntasComponent},
   { path: 'G.Tipo', component: GTipoComponent},
-  { path: 'Liatado', component: ListadoComponent},
+  { path: 'G.Preguntas', component: GPreguntasComponent},
+  { path: 'listado', component: ListadoComponent},
+  { path: 'Listado', component: ListadoComponent},
   { path: 'Adiccion', component: AdiccionComponent},
   { path: 'Editar', component: EditarComponent},
 

@@ -3,8 +3,8 @@ import { SubmenuItemComponent } from '../submenu-item/submenu-item.component';
 import { SubmenuComponent } from '../submenu/submenu.component';
 import { AdiccionComponent } from '../adiccion/adiccion.component';
 import { EditarComponent } from '../editar/editar.component';
-import { GPreguntasComponent } from '../g.preguntas/g.preguntas.component';
 import { GTipoComponent } from '../g.tipo/g.tipo.component';
+import { GPreguntasComponent } from '../g.preguntas/g.preguntas.component';
 import { ListadoComponent } from '../listado/listado.component';
 import { RegistroComponent } from '../registro/registro.component';
 import { Title } from '@angular/platform-browser';
@@ -13,7 +13,7 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-menulateral',
   standalone: true,
-  imports: [SubmenuComponent, SubmenuItemComponent,],
+  imports: [SubmenuComponent, SubmenuItemComponent],
   templateUrl: './menulateral.component.html',
   styleUrl: './menulateral.component.sass',
 })
@@ -28,17 +28,11 @@ export class MenulateralComponent {
     },
 
     {
-      
-      Title: 'G.Encuestas',
-      Icon: 'fa-solid fa-bomb',
-      link: 'g.encuestas',
-    },
-
-    {
       Title: 'G.Preguntas',
       Icon: 'fa-solid fa-house-user',
-      Link: 'g.preguntas',
+      Link: '/g.preguntas',
     },
+    
     {
       Title: 'G.Tipo',
       Icon: 'fa-solid fa-house-user',
